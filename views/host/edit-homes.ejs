@@ -1,0 +1,35 @@
+<%- include('../../partials/head') %>
+</head>
+<body>
+  <%- include('../../partials/nav')%>
+<main class="flex flex-col min-h-screen bg-gray-100 text-center px-4">
+
+
+  <h1 class="text-blue-700 text-3xl font-bold mt-20"><%=Editing? "Edit":"Add"%> Your Home Details</h1>
+
+  <div class="flex-1 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+      <form action="/host/<%=Editing?'edit-home':'submit-home'%>" method="POST" class="space-y-4">
+        <input type="hidden" name="id" value="<%=Editing? house._id:''%>" >
+        <input type="text" name="house_name" value="<%=Editing? house.house_name:''%>" placeholder="Enter your house name"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" name="Location" value="<%=Editing? house.Location:''%>" placeholder="Enter your house Location"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" name="Price" value="<%=Editing? house.Price:''%>" placeholder="Enter the Price per night"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" name="Rating" value="<%=Editing? house.Rating:''%>"placeholder="Enter your house rating"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" name="Image_url" value="<%=Editing? house.Image_url:''%>"placeholder="Enter your house image url"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <textarea name="description" placeholder="Describe your home"
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"><%=Editing? house.description:''%></textarea>
+        <button type="submit"
+          class="mt-2 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          <%=Editing? "Update":"Submit"%>
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+</body>
+</html>

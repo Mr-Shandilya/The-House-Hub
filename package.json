@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind": "tailwindcss -i ./views/input.css -o ./public/output.css --watch",
-    "start": "nodemon app.js & npm run tailwind"
+    "start": "concurrently \"nodemon app.js\" \"npm run tailwind\"",
+    "tailwind": "tailwindcss -i ./views/input.css -o ./public/output.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -13,14 +12,22 @@
   "description": "",
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.0",
     "nodemon": "^3.1.9",
     "postcss": "^8.5.2",
     "tailwind": "^4.0.0"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.0.6",
+    "bcryptjs": "^3.0.2",
+    "connect-mongodb-session": "^5.0.0",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.3.0",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.0",
+    "mysql2": "^3.14.4",
     "tailwindcss": "^4.0.6"
   }
 }

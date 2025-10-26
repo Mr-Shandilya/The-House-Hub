@@ -1,0 +1,42 @@
+<%- include('../../partials/head')%>
+</head>
+<body>
+  <%- include('../../partials/nav')%>
+<main class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center px-4">
+  <h1 class="text-red-700 text-5xl font-bold mb-6">Hey Host! Here are your Home List</h1>
+
+  <div class="flex-col w-auto max-w-4xl bg-blue-600 shadow-lg rounded-lg p-4 border-4 border-blue-800">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <% body.forEach((house) => { %>
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden border-2 border-gray-300">
+        <img class="w-full h-24 object-cover border-b-2 border-gray-300" src="<%= house.Image_url %>" alt="House Image">
+        <div class="p-4">
+          <h2 class="text-xl font-bold text-gray-800"><%= house.house_name %></h2>
+          <p class="text-gray-600">Location: <span class="font-medium"><%= house.Location %></span></p>
+          <p class="text-gray-600">Price: <span class="font-medium">&#8377;<%= house.Price %></span></p>
+          <p class="text-gray-600">Rating: <span class="font-medium ml-1"><%= house.Rating %> ⭐</span></p>
+          <a href="/host/edit-home/<%=house._id%>?editing=true" class="mt-6 w-full bg-blue-600 text-white py-0.5 px-1 rounded-lg hover:bg-blue-700 transition border border-blue-800">
+            Edit
+          </a>
+          <form action="/host/delete/<%=house._id%>" method="POST">
+              <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition border border-blue-800">
+            Delete
+          </button>
+          </form>
+          
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+
+  
+
+  <a href="/host/add-home" 
+     class="mt-6 px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 shadow-md transition duration-300">
+    Add Home
+  </a>
+</main>
+</body>
+</html>

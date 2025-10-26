@@ -1,18 +1,14 @@
 //External Modules
 const express=require('express')
-//core Modles
-const path=require('path')
 //local
-const rootDir=require('../util/path');
 const hostrouter=express.Router();
-hostrouter.get('/add-home',(req,res,next)=>{
-  res.render('addhome',{Page_title:'Add Home'});
-});
-const body=[];
-hostrouter.post('/submit-home',(req,res,next)=>{
-  body.push(req.body); //Now pushing the whole object
-  //console.log(body);
-  res.redirect("/");
-})
+const homeController=require('../controller/hostController')
+hostrouter.get('/add-home',homeController.AddHomes);
+hostrouter.get('/host-home-list',homeController.getHostHomes);
+hostrouter.get('/edit-home/:homeId',homeController.EditHomes);
+hostrouter.post('/edit-home',homeController.PostEditHomes);
+hostrouter.post('/submit-home',homeController.submitHomes);
+hostrouter.post('/delete/:homeId',homeController.deleteHome);
+
 exports.host=hostrouter;
-exports.body=body;
+//exports.body=body;

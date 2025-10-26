@@ -1,0 +1,49 @@
+<%- include('../../partials/head') %>
+</head>
+<body class="min-h-screen bg-gray-100">
+ <%- include('../../partials/nav') %>
+  <h1 class="text-4xl font-bold text-blue-600 mb-8 text-center mt-8">Login Here</h1>
+  <div class="flex justify-center">
+   <form action="/login" method= "POST" classe="w-full max-w-md">
+    
+    <%if(typeof errorMessage!=='undefined' && errorMessage.length>0){%>
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+            <ul class="list-disc list-inside space-y-1">
+              <% errorMessage.forEach(err=>{ %>
+                <li><%=err%></li>
+              <%})%>
+            </ul>
+          </div>
+           <%}%>
+
+
+     <input
+       type="email" name="email"
+       placeholder="Enter your email"
+       value="<%= typeof Oldinputs !== 'undefined' ? Oldinputs.email : ''%>"
+       class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+       required/>
+
+     <input type="password" name="password"
+       placeholder="Enter your password"
+       class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+       required/>
+
+       <p class="text-center text-sm text-gray-700 mt-4">
+          New user? 
+          <a href="/signup" class="text-blue-600 font-semibold hover:underline">
+            Sign up here
+          </a>
+        </p>
+      <br>
+
+    <div class="flex justify-center">
+     <input
+      type="submit" value="Login"
+      class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md cursor-pointer"/>
+    </div>
+   </form>
+  </div>
+</main>
+</body> 
+</html>
