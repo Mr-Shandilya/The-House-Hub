@@ -30,11 +30,12 @@ The app demonstrates secure **authentication**, **role-based authorization**, an
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the Repository
 
-git clone https://github.com/Mr-Shandilya/The-House-Hub
+```bash
+git clone https://github.com/yourusername/house-hub.git
 cd house-hub
 
 ### 2. Install Dependencies
