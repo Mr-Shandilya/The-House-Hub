@@ -37,17 +37,21 @@ The app demonstrates secure **authentication**, **role-based authorization**, an
 ```bash
 git clone https://github.com/yourusername/house-hub.git
 cd house-hub
+```
 
 ### 2. Install Dependencies
+```bash
 npm install
-
+```
 
 ### 3. Run the Server
+```bash
 npm start
+```
 Visit http://localhost:3000 to view the app.
 
 ## Folder Structure
-
+```bash
 house-hub/
 ├── public/               # Static assets (CSS, images)
 ├── partials/             # Header, nav, favourites
@@ -60,7 +64,7 @@ house-hub/
 ├── controllers/          # Request handlers
 ├── app.js                # Main Express app
 └── package.json
-
+```
 ## Core Functionalities
 Authentication & Session Management – secure login/logout with cookies.
 
