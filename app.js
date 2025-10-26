@@ -28,7 +28,7 @@ app.use(express.urlencoded());
 
 
 const PORT=3000;
-const MongoURL="mongodb+srv://Mr-Shandilya:Vivek123@mr-shandilya.e7ajwbp.mongodb.net/house_hub?retryWrites=true&w=majority&appName=Mr-Shandilya";
+const MongoURL="mongodb+srv://Mr-Shandilya:<password>@mr-shandilya.e7ajwbp.mongodb.net/house_hub?retryWrites=true&w=majority&appName=Mr-Shandilya";
 
 
 const MongoDBStore=require('connect-mongodb-session')(session);
